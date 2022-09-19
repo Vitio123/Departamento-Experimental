@@ -13,7 +13,6 @@ public class SetObjetivoNavegacion : MonoBehaviour
     [SerializeField]
     private GameObject objetivo;
 
-
     private NavMeshPath camino;
     private LineRenderer linea;
     
@@ -44,5 +43,6 @@ public class SetObjetivoNavegacion : MonoBehaviour
             linea.enabled = true;
         }
     }
+   
 
 }
