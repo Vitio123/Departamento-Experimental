@@ -6,6 +6,6 @@ using UnityEngine;
 [Serializable]
 
 public class Objetivo {
-    public String nombre;
+    public String Nombre;
     public GameObject PosicionObjeto;
 }

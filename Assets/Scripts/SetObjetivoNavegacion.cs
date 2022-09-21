@@ -1,48 +1,56 @@
-using System.IO;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using TMPro;
 
 public class SetObjetivoNavegacion : MonoBehaviour
 {
-    /* Una forma de hacer una variable privada visible en el inspector.*/
+    //Crear Variables
     [SerializeField]
-    private Camera camaraSuperior;
+    private TMP_Dropdown navegacionObjetivoDropDrown;
     [SerializeField]
-    private GameObject objetivo;
+    private List<Objetivo> navObjObjetos = new List<Objetivo>();
 
     private NavMeshPath camino;
     private LineRenderer linea;
-    
-    private bool lineaAlternativa = false;
+    private Vector3 objetivoPosicion = Vector3.zero;
 
+    private bool lineaPalanca = false;
+
+    //Método Start
     private void Start()
     {
         camino = new NavMeshPath();
         linea = transform.GetComponent<LineRenderer>();
+        linea.enabled = lineaPalanca;
     }
 
+    //Método Update
     private void Update()
     {
-       /* Comprobación de si el usuario ha tocado la pantalla y, de ser así, está cambiando el valor del
-        Variable Lineaalternativa.*/
-        if((Input.touchCount > 0) && (Input.GetTouch(0).phase == TouchPhase.Began)){
-            lineaAlternativa = !lineaAlternativa;
-        }
-
-        if (lineaAlternativa){
-            /* Calculating the path between the two points. */
-            NavMesh.CalculatePath(transform.position, objetivo.transform.position, NavMesh.AllAreas, camino);
-            /* Establecer el número de posiciones en el renderizador de línea al número de esquinas en el
-            sendero.*/
+        ///Dibujar la ruta del jugador al objetivo seleccionado.*/
+        if(lineaPalanca && objetivoPosicion != Vector3.zero){
+            NavMesh.CalculatePath(transform.position, objetivoPosicion, NavMesh.AllAreas, camino);
             linea.positionCount = camino.corners.Length;
-            /* Establecer las posiciones del renderizador de línea a las esquinas de la ruta.*/
             linea.SetPositions(camino.corners);
-            linea.enabled = true;
         }
     }
-   
+
+
+    ///Toma el valor del menú desplegable y lo usa para encontrar la posición del objeto en la escena
+    public void setNavObjActual(int valorSelecionado){
+        objetivoPosicion = Vector3.zero;
+        string textoSelecionado = navegacionObjetivoDropDrown.options[valorSelecionado].text;
+        Objetivo objetivoActual = navObjObjetos.Find(x => x.Nombre.Equals(textoSelecionado));
+        if (objetivoActual != null){
+            objetivoPosicion = objetivoActual.PosicionObjeto.transform.position;
+        }
+    }
+
+    // Cambia la visibilidad del renderizador de la línea
+    public void AlterarVisibilidad(){
+        lineaPalanca = !lineaPalanca;
+        linea.enabled = lineaPalanca;
+    }
 
 }
