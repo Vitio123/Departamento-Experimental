@@ -154,8 +154,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3433eda2d48358346b1b1bf00eb1131a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camaraSuperior: {fileID: 1802693595}
-  objetivo: {fileID: 656200046}
+  navegacionObjetivoDropDrown: {fileID: 1172388455}
+  navObjObjetos:
+  - Nombre: Comedor
+    PosicionObjeto: {fileID: 656200046}
+  - Nombre: Entrada
+    PosicionObjeto: {fileID: 1415028677}
+  - Nombre: Cocina
+    PosicionObjeto: {fileID: 1855788618}
+  - Nombre: Dormitorio 1
+    PosicionObjeto: {fileID: 1248624231}
+  - Nombre: Dormitorio 2
+    PosicionObjeto: {fileID: 635087727}
+  - Nombre: Dormitorio 3
+    PosicionObjeto: {fileID: 860959784}
+  - Nombre: "Ba\xF1o"
+    PosicionObjeto: {fileID: 477561924}
 --- !u!120 &9467398
 LineRenderer:
   serializedVersion: 2
@@ -209,7 +223,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.12738764
+        value: 0.1928097
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1724,8 +1738,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2402,8 +2416,6 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Cocina
       m_Image: {fileID: 0}
-    - m_Text: Cocina
-      m_Image: {fileID: 0}
     - m_Text: Dormitorio 1
       m_Image: {fileID: 0}
     - m_Text: Dormitorio 2
@@ -2414,7 +2426,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9467397}
+        m_TargetAssemblyTypeName: SetObjetivoNavegacion, Assembly-CSharp
+        m_MethodName: setNavObjActual
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1172388456
 MonoBehaviour:
@@ -3348,7 +3372,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1903372081}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9467397}
+        m_TargetAssemblyTypeName: SetObjetivoNavegacion, Assembly-CSharp
+        m_MethodName: AlterarVisibilidad
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1903372081
 MonoBehaviour:
   m_ObjectHideFlags: 0
