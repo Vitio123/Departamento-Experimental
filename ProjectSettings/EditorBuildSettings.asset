@@ -14,6 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mapa 3D.unity
     guid: f1871ef7993181344aa62b9cc3b8faf8
+  - enabled: 1
+    path: Assets/Scenes/Conexion.unity
+    guid: e1ccc12d0dd705946922d2f250c0a08a
+  - enabled: 1
+    path: Assets/Scenes/AR escena Mercedes.unity
+    guid: 2ea0063c03337df4c931b9df49033e94
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 8e93f42b92e13874f87e904b854c08f5,
       type: 2}
