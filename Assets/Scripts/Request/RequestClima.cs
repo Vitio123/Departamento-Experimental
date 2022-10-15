@@ -36,7 +36,7 @@ public class RequestClima : MonoBehaviour
                     break;
                 case UnityWebRequest.Result.Success:
                 var clima = JsonConvert.DeserializeObject<ClimaResponse>(request.downloadHandler.text);
-                temperatura.text = "Temperatura: "+clima.main.temp.ToString() + "°";
+                    temperatura.text = "Temperatura: "+clima.main.temp.ToString() + "° - " ;
                 break;
             }
     }
