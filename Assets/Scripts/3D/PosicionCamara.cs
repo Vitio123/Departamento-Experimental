@@ -21,8 +21,6 @@ public class PosicionCamara : MonoBehaviour
 
     public GameObject objectoParaEncontrar;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
