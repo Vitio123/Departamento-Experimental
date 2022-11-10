@@ -1,0 +1,130 @@
+{
+	"TargetList": [
+		{
+			"Name": "Dormitorio1",
+			"FloorNumber": 0,
+			"Position": {
+				"x": 0.91,
+				"y": 0.00,
+				"z": -0.526
+			},
+			"Rotation": {
+				"x": 0.0,
+				"y": 90.00,
+				"z": 0.0
+			}
+		},
+		{
+			"Name": "Dormitorio2",
+			"FloorNumber": 0,
+			"Position": {
+				"x": -2.626,
+				"y": 0.00,
+				"z": -1.067
+			},
+			"Rotation": {
+				"x": 0.0,
+				"y": 180.0,
+				"z": 0.0
+			}
+		},
+		{
+			"Name": "Dormitorio3",
+			"FloorNumber": 0,
+			"Position": {
+				"x": -4.909,
+				"y": 0.00,
+				"z": -1.446
+			},
+			"Rotation": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0
+			}
+		},
+		{
+			"Name": "Comedor",
+			"FloorNumber": 0,
+			"Position": {
+				"x": -3.424,
+				"y": 0.00,
+				"z": -5.43
+			},
+			"Rotation": {
+				"x": 0.0,
+				"y": 180.0,
+				"z": 0.0
+			}
+		},
+		{
+			"Name": "Bano",
+			"FloorNumber": 0,
+			"Position": {
+				"x": -1.42,
+				"y": 0.00,
+				"z": -2.637
+			},
+			"Rotation": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0
+			}
+		},
+		{
+			"Name": "Cocina",
+			"FloorNumber": 0,
+			"Position": {
+				"x": -1.502,
+				"y": 0.00,
+				"z": -4.645
+			},
+			"Rotation": {
+				"x": 0.0,
+				"y": 180,
+				"z": 0.0
+			}
+		},
+		{
+			"Name": "Entrada",
+			"FloorNumber": 0,
+			"Position": {
+				"x": 2.63,
+				"y": 0.00,
+				"z": -4.688
+			},
+			"Rotation": {
+				"x": 0.0,
+				"y": 180.0,
+				"z": 0.0
+			}
+		},
+		{
+			"Name": "ExtraRoom",
+			"FloorNumber": 1,
+			"Position": {
+				"x": -5.68,
+				"y": 0.00,
+				"z": -5.67
+			},
+			"Rotation": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0
+			}
+		},
+		{
+			"Name": "SecondMainEntrance",
+			"FloorNumber": 1,
+			"Position": {
+				"x": -8.15,
+				"y": 0.00,
+				"z": -0.48
+			},
+			"Rotation": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0
+			}
+		}
+	]
+}

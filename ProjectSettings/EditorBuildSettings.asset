@@ -20,6 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AR escena 2.unity
     guid: c5b21b687fcaf1344a8067b13a37d69e
+  - enabled: 1
+    path: Assets/Scenes/IndoorNavigation 1.unity
+    guid: 933df84f4e10dd9468882a0473cd2abe
+  - enabled: 1
+    path: Assets/Scenes/IndoorNavigation 2.unity
+    guid: c5ebad08340ae1b449da36055ebf1771
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 8e93f42b92e13874f87e904b854c08f5,
       type: 2}
