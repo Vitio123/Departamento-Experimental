@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using TMPro;
 
 public class TargetHandler : MonoBehaviour {
 
@@ -16,19 +17,33 @@ public class TargetHandler : MonoBehaviour {
     private GameObject targetObjectPrefab;
     [SerializeField]
     private Transform[] targetObjectsParentTransforms;
+    [SerializeField]
+    private TMP_Text textoArea;
+
 
 
     private List<TargetFacade> currentTargetItems = new List<TargetFacade>();
 
     private void Start() {
         GenerateTargetItems();
+        textoArea.text = StateNameController.nombreLugar.text;
         FillDropdownWithTargetItems();
+        SetSelectedTargetPositionWithDropdown(0);
+        
     }
 
     private void GenerateTargetItems() {
         IEnumerable<Target> targets = GenerateTargetDataFromSource();
         foreach (Target target in targets) {
-            currentTargetItems.Add(CreateTargetFacade(target));
+             if(target.Name == StateNameController.idLugar.text){
+                    currentTargetItems.Add(CreateTargetFacade(target));
+             }
+        }
+
+        foreach (Target target in targets) {
+             if(target.Name != StateNameController.idLugar.text){
+                    currentTargetItems.Add(CreateTargetFacade(target));
+             }
         }
     }
 
@@ -38,6 +53,7 @@ public class TargetHandler : MonoBehaviour {
 
     private TargetFacade CreateTargetFacade(Target target) {
         GameObject targetObject = Instantiate(targetObjectPrefab, targetObjectsParentTransforms[target.FloorNumber], false);
+        
         targetObject.SetActive(true);
         targetObject.name = $"{target.FloorNumber} - {target.Name}";
         targetObject.transform.localPosition = target.Position;

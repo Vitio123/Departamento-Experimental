@@ -29,9 +29,17 @@ public class PosicionCamara : MonoBehaviour
     public TMP_Text idLugar;
     public TMP_Text area;
     public TMP_Text descripcion;
+    public TMP_Text estado;
+    public TMP_Text doctor;
+
+
+    public GameObject cargando1;
+    public GameObject cargando2;
 
     [SerializeField] private Image panelInformacion;
 
+
+    
 
     private string url;
 
@@ -53,7 +61,8 @@ public class PosicionCamara : MonoBehaviour
 
         for (int i = 0; i < objectoParaEncontrar.transform.childCount; i++){
                 if(objectoParaEncontrar.transform.GetChild(i).name.Equals(strlist[0])){
-                currentView.position = objectoParaEncontrar.transform.GetChild(i).position + new Vector3(12.0f,50.0f,0.0f);
+                currentView.position = objectoParaEncontrar.transform.GetChild(i).position + new Vector3(16.0f,30.0f,0.0f);
+                currentView.rotation = Quaternion.Euler(new Vector3(58.928f, -90.254f, 0.02f));
                 mainInput.text = "";
                 url = "https://mercedes-app-backend.herokuapp.com/lugares/?IdLugares=" + objectoParaEncontrar.transform.GetChild(i).name;
                 Debug.Log(url);
@@ -63,8 +72,12 @@ public class PosicionCamara : MonoBehaviour
     }
 
     public void ObtenerLugar(){
+        informacionPanel.SetActive(true);
+        cargando1.SetActive(true);
+        cargando2.SetActive(true);
+        area.text = "";
+        descripcion.text = "";
         StartCoroutine(HacerSolicitudInformacion());
-
     }
 
     private void LateUpdate()
@@ -95,12 +108,22 @@ public class PosicionCamara : MonoBehaviour
                 var informacion = JsonConvert.DeserializeObject<System.Collections.Generic.List<InformacionResponse>>(request.downloadHandler.text);
                 var myinformacion = informacion[0];
                 if(myinformacion != null){
-                    informacionPanel.SetActive(true);
+                    cargando1.SetActive(false);
+                    cargando2.SetActive(false);
                     idLugar.text = myinformacion.IdLugares.ToString();
                     panelInformacion.color = AgregarColor(Int32.Parse(idLugar.text));
                     //panelInformacion.color = new Color32(156, 39, 176,255);
                     area.text = myinformacion.Lugar.ToString();
                     descripcion.text = myinformacion.Descripcion.ToString();
+                    estado.text = myinformacion.estado ? "activo" : "No activo";
+
+                    doctor.text = "Nadie a cargo";
+                    // if(myinformacion.doctor != null){
+                    //    // doctor.text = myinformacion.doctor.nombre;
+                    // }else{
+                        
+                    // }
+                    
                 }
                 break;
             }

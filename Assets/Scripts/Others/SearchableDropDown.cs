@@ -28,6 +28,7 @@ public class SearchableDropDown : MonoBehaviour
 
     public delegate void OnValueChangedDel(string val);
     public OnValueChangedDel OnValueChangedEvt;
+    char[] spearator = {'-'};
 
     void Start()
     {
@@ -81,7 +82,9 @@ public class SearchableDropDown : MonoBehaviour
         foreach (var option in options)
         {
             var buttObj = Instantiate(buttonsPrefab, content);
+            string[] strlist = option.Split(spearator);
             buttObj.GetComponentInChildren<TMP_Text>().text = option;
+            buttObj.GetComponentInChildren<TMP_Text>().color = AgregarColor(Int32.Parse(strlist[0]));
             buttObj.name = option;
             buttObj.SetActive(true);
             var butt = buttObj.GetComponent<Button>();
@@ -252,6 +255,77 @@ public class SearchableDropDown : MonoBehaviour
         var count = content.transform.Cast<Transform>().Count(child => child.gameObject.activeSelf);
         var length = buttonsPrefab.GetComponent<RectTransform>().sizeDelta.y * count;
         return length;
+    }
+
+        private Color AgregarColor(int numero){
+        switch (numero){
+            case  < 200:
+                return new Color32(244, 67, 54,255);
+                break;
+            case  < 300:
+                return new Color32(233, 30, 99,255);
+                break;
+            case < 400:
+                return new Color32(156, 39, 176,255);
+                break;
+            case < 500:
+                return new Color32(63, 81, 181,255);
+                break;
+            case < 600:
+                return new Color32(33, 150, 243,255);
+                break;
+            case < 700:
+                return new Color32(3, 169, 244,255);
+                break;
+            case < 800:
+                return new Color32(3, 169, 244,255);
+                break;
+            case < 900:
+                return new Color32(0, 188, 212,255);
+                break;
+            case < 1000:
+                return new Color32(0, 150, 136,255);
+                break;
+            case < 1100:
+                return new Color32(76, 175, 80,255);
+                break;
+            case < 1200:
+                return new Color32(139, 195, 74,255);
+                break;
+            case < 1300:
+                return new Color32(205, 220, 57,255);
+                break;
+            case < 1400:
+                return new Color32(10, 10, 10,255);
+                break;
+            case < 1500:
+                return new Color32(255, 193, 7,255);
+                break;
+            case < 1600:
+                return new Color32(255, 152, 0,255);
+                break;
+            case < 1700:
+                return new Color32(255, 87, 34,255);
+                break;
+            case < 1800:
+                return new Color32(121, 85, 72,255);
+                break;
+            case < 1900:
+                return new Color32(158, 158, 158,255);
+                break;
+            case < 2000:
+                return new Color32(96, 125, 139,255);
+                break;
+            case < 2100:
+                return new Color32(221, 44, 0,255);
+                break;
+            case < 2200:
+                return new Color32(100, 221, 23,255);
+                break;
+            default:
+                return new Color32(244, 67, 54,255);
+                break;
+        }
     }
 
    

@@ -13,6 +13,8 @@ public class DeplazarYPell : MonoBehaviour
 #if UNITY_IOS || UNITY_ANDROID
     public Camera Camera;
     public bool Girar;
+    public GameObject comboBox;
+    public GameObject informacion;
     protected Plane plano;
 
     private void Awake()
@@ -24,6 +26,7 @@ public class DeplazarYPell : MonoBehaviour
 
     void Update()
     {
+        if(!comboBox.activeInHierarchy && !informacion.activeInHierarchy){
         //Acutalizar plano
         if(Input.touchCount >=1){
             plano.SetNormalAndPosition(transform.up, transform.position);
@@ -64,7 +67,7 @@ public class DeplazarYPell : MonoBehaviour
                 Camera.transform.RotateAround(pos1, plano.normal, Vector3.SignedAngle(pos2 - pos1, pos2b - pos1b, plano.normal));
             }
         }
-
+        }
     }
 
     protected Vector3 PosicionPlanoDelta(Touch tocar){
