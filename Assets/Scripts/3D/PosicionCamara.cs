@@ -61,8 +61,8 @@ public class PosicionCamara : MonoBehaviour
 
         for (int i = 0; i < objectoParaEncontrar.transform.childCount; i++){
                 if(objectoParaEncontrar.transform.GetChild(i).name.Equals(strlist[0])){
-                currentView.position = objectoParaEncontrar.transform.GetChild(i).position + new Vector3(16.0f,30.0f,0.0f);
-                currentView.rotation = Quaternion.Euler(new Vector3(58.928f, -90.254f, 0.02f));
+                currentView.position = objectoParaEncontrar.transform.GetChild(i).position + new Vector3(0.0f,25.0f,-13.0f);
+                currentView.rotation = Quaternion.Euler(new Vector3(58.928f, 0f, 0.02f));
                 mainInput.text = "";
                 url = "https://mercedes-app-backend.herokuapp.com/lugares/?IdLugares=" + objectoParaEncontrar.transform.GetChild(i).name;
                 Debug.Log(url);
@@ -118,12 +118,9 @@ public class PosicionCamara : MonoBehaviour
                     estado.text = myinformacion.estado ? "activo" : "No activo";
 
                     doctor.text = "Nadie a cargo";
-                    // if(myinformacion.doctor != null){
-                    //    // doctor.text = myinformacion.doctor.nombre;
-                    // }else{
-                        
-                    // }
-                    
+                    if(myinformacion.doctor != null){
+                       doctor.text = myinformacion.doctor.ToString();
+                    }
                 }
                 break;
             }

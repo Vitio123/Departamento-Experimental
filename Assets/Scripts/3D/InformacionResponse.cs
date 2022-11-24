@@ -34,6 +34,6 @@ using UnityEngine;
         public DateTime updatedAt { get; set; }
         public int __v { get; set; }
         public string IdLugares { get; set; }
-        // public Doctor doctor { get; set; }
+        public string doctor { get; set; }
         public string id { get; set; }
     }

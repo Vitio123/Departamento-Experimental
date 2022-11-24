@@ -4,7 +4,7 @@
 			"Name": "StartPoint",
 			"FloorNumber": 0,
 			"Position": {
-				"x": 2.72,
+				"x": 2.45,
 				"y": 0.00,
 				"z": -9.29
 			},
@@ -18,7 +18,7 @@
 			"Name": "LivingRoom",
 			"FloorNumber": 0,
 			"Position": {
-				"x": 2.56,
+				"x": 2.38,
 				"y": 0.00,
 				"z": 11.85
 			},
@@ -35,7 +35,7 @@
 			"Position": {
 				"x": -47.03,
 				"y": 0.00,
-				"z": 13.9
+				"z": 13.8
 			},
 			"Rotation": {
 				"x": 0.0,
@@ -63,9 +63,9 @@
 			"Name": "Dormitorio3",
 			"FloorNumber": 0,
 			"Position": {
-				"x": -59.97,
+				"x": -59.9,
 				"y": 0.00,
-				"z": -25.36
+				"z": -25.3
 			},
 			"Rotation": {
 				"x": 0.0,
@@ -78,13 +78,13 @@
 			"Name": "Cocina",
 			"FloorNumber": 0,
 			"Position": {
-				"x": 16.1,
+				"x": 21.58,
 				"y": 0.00,
-				"z": -23.97
+				"z": -25.57
 			},
 			"Rotation": {
 				"x": 0.0,
-				"y": 270.0,
+				"y": 45.0,
 				"z": 0.0
 			}
 		}
@@ -93,13 +93,13 @@
 			"Name": "Bano",
 			"FloorNumber": 0,
 			"Position": {
-				"x": 45.42,
+				"x": 47.92,
 				"y": 0.00,
-				"z": 5.28
+				"z": 12.93
 			},
 			"Rotation": {
 				"x": 0.0,
-				"y": 270.0,
+				"y": 315.0,
 				"z": 0.0
 			}
 		}
