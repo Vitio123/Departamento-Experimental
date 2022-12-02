@@ -845,7 +845,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2cb48d457c42fc54dbe85367d201e6f8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3a9460f9bf419e64f8b6e916e4e0bf44, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1158,7 +1158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &777395340
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1199,7 +1199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '@vitio124'
+  m_text: Creado por A. Quijano
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2a09327ab8381754881a93e7dbc4a45b, type: 2}
   m_sharedMaterial: {fileID: -7670324805707359577, guid: 2a09327ab8381754881a93e7dbc4a45b,
@@ -1209,8 +1209,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4286413056
-  m_fontColor: {r: 0, g: 0.47450984, b: 0.4901961, a: 1}
+    rgba: 4279242971
+  m_fontColor: {r: 0.8588236, g: 0.0627451, b: 0.0627451, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2704,7 +2704,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.20
+  m_text: Version 1.22
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2a09327ab8381754881a93e7dbc4a45b, type: 2}
   m_sharedMaterial: {fileID: -7670324805707359577, guid: 2a09327ab8381754881a93e7dbc4a45b,

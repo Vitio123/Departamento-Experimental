@@ -1,10 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-
- public class Doctor2
+// Root myDeserializedClass = JsonConvert.DeserializeObject<List<Root>>(myJsonResponse);
+public class Doctor
     {
         public bool activo { get; set; }
         public string _id { get; set; }
@@ -21,7 +19,7 @@ using UnityEngine;
         public string id { get; set; }
     }
 
-    public class InformacionResponse
+    public class Lugares
     {
         public bool estado { get; set; }
         public string _id { get; set; }
@@ -34,6 +32,12 @@ using UnityEngine;
         public DateTime updatedAt { get; set; }
         public int __v { get; set; }
         public string IdLugares { get; set; }
-        public Doctor2 doctor { get; set; }
+        public Doctor doctor { get; set; }
         public string id { get; set; }
+        public string doctore { get; set; }
+    }
+
+    public class RootObject
+    {
+        public List<Lugares> Lugares { get; set; }
     }

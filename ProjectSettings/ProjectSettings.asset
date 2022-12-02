@@ -132,7 +132,7 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
-  bundleVersion: 1.20
+  bundleVersion: 1.22
   preloadedAssets:
   - {fileID: 0}
   - {fileID: 0}
@@ -170,13 +170,34 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 8154901019334016880, guid: bea35811c23156e49b554f65b1cd7948, type: 2}
-  - {fileID: 11400000, guid: 0611bd4cc42ac3a45800a9f430b401fa, type: 2}
-  - {fileID: 11400000, guid: 6587a3bed06e4f34ebd666f6d68a66f1, type: 2}
   - {fileID: 0}
-  - {fileID: 3248309752171413626, guid: 32f2cf1e6d5ab484e9ca16b96e3fdea4, type: 2}
-  - {fileID: 4800000, guid: c9f956787b1d945e7b36e0516201fc76, type: 3}
-  - {fileID: 4800000, guid: 0945859e5a1034c2cb6dce53cb4fb899, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -315,7 +336,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 3a9460f9bf419e64f8b6e916e4e0bf44, type: 3}
+      m_Icon: {fileID: 2800000, guid: 2cb48d457c42fc54dbe85367d201e6f8, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

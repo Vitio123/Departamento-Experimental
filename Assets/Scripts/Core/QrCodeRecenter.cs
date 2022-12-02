@@ -1,8 +1,11 @@
+using System.Collections;
 using Unity.Collections;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using TMPro;
 using ZXing;
+
 
 public class QrCodeRecenter : MonoBehaviour {
 
@@ -17,9 +20,20 @@ public class QrCodeRecenter : MonoBehaviour {
     [SerializeField]
     private GameObject qrCodeScanningPanel;
 
+    [SerializeField]
+    private TMP_Text texto;
+    [SerializeField]
+    private GameObject animacion;
+    [SerializeField]
+    private GameObject texto_recomendacion;
+    [SerializeField]
+    private GameObject texto_distancia;
+
+
     private Texture2D cameraImageTexture;
     private IBarcodeReader reader = new BarcodeReader(); // create a barcode reader instance
     private bool scanningEnabled = false;
+
 
     private void OnEnable() {
         cameraManager.frameReceived += OnCameraFrameReceived;
@@ -40,36 +54,36 @@ public class QrCodeRecenter : MonoBehaviour {
         }
 
         var conversionParams = new XRCpuImage.ConversionParams {
-            // Get the entire image.
+            // Obtener la imagen completa.
             inputRect = new RectInt(0, 0, image.width, image.height),
 
-            // Downsample by 2.
+            // Reducir la muestra en 2.
             outputDimensions = new Vector2Int(image.width / 2, image.height / 2),
 
-            // Choose RGBA format.
+            // Elija el formato RGBA.
             outputFormat = TextureFormat.RGBA32,
 
-            // Flip across the vertical axis (mirror image).
+            // Voltear a través del eje vertical (imagen de espejo).
             transformation = XRCpuImage.Transformation.MirrorY
         };
 
-        // See how many bytes you need to store the final image.
+        // Vea cuántos bytes necesita para almacenar la imagen final.
         int size = image.GetConvertedDataSize(conversionParams);
 
-        // Allocate a buffer to store the image.
+        // Asignar un buffer para almacenar la imagen. 
         var buffer = new NativeArray<byte>(size, Allocator.Temp);
 
-        // Extract the image data
+        // Extraer los datos de la imagen
         image.Convert(conversionParams, buffer);
 
-        // The image was converted to RGBA32 format and written into the provided buffer
-        // so you can dispose of the XRCpuImage. You must do this or it will leak resources.
+        // La imagen fue convertida al formato RGBA32 y escrita en el buffer proporcionado
+        // para poder disponer de la XRCpuImage. Debes hacer esto o se filtrarán recursos.
         image.Dispose();
 
-        // At this point, you can process the image, pass it to a computer vision algorithm, etc.
-        // In this example, you apply it to a texture to visualize it.
+        // En este punto, puedes procesar la imagen, pasarla a un algoritmo de visión por ordenador, etc.
+        // En este ejemplo, la aplicas a una textura para visualizarla.
 
-        // You've got the data; let's put it into a texture so you can visualize it.
+        // Ya tienes los datos; vamos a ponerlos en una textura para poder visualizarlos.
         cameraImageTexture = new Texture2D(
             conversionParams.outputDimensions.x,
             conversionParams.outputDimensions.y,
@@ -87,23 +101,32 @@ public class QrCodeRecenter : MonoBehaviour {
 
         // Do something with the result
         if (result != null) {
-            SetQrCodeRecenterTarget(result.Text);
-            ToggleScanning();
+            texto.text = "Analizando el código QR";
+            scanningEnabled = false;
+            StartCoroutine(SetQrCodeRecenterTarget(result.Text));
+            // qrCodeScanningPanel.SetActive(false);
+            texto.text = "Buscando el código QR";
         }
     }
 
-    private void SetQrCodeRecenterTarget(string targetText) {
+    IEnumerator SetQrCodeRecenterTarget(string targetText) {
+        
         TargetFacade currentTarget = targetHandler.GetCurrentTargetByTargetText(targetText);
         if (currentTarget != null) {
+            yield return new WaitForSeconds(3);
             // Reset position and rotation of ARSession
             session.Reset();
-
-            // Add offset for recentering
+            // Añadir desplazamiento para el recentrado
             sessionOrigin.transform.position = currentTarget.transform.position;
             sessionOrigin.transform.rotation = currentTarget.transform.rotation;
+
+            qrCodeScanningPanel.SetActive(false);
+
+            texto_distancia.SetActive(true);
         }
     }
 
+   
     public void ChangeActiveFloor(string floorEntrance) {
         SetQrCodeRecenterTarget(floorEntrance);
     }

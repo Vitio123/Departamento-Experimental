@@ -20,6 +20,12 @@ public class PosicionCamara : MonoBehaviour
     private TMP_InputField mainInput;
 
     [SerializeField]
+    private TMP_InputField mainInputDoctores;
+
+    public GameObject panelLugares;
+    public GameObject panelDoctores;
+
+    [SerializeField]
     private TMP_Text texto;
 
     public GameObject objectoParaEncontrar;
@@ -38,8 +44,8 @@ public class PosicionCamara : MonoBehaviour
 
     [SerializeField] private Image panelInformacion;
 
+    private string str = "";
 
-    
 
     private string url;
 
@@ -53,7 +59,12 @@ public class PosicionCamara : MonoBehaviour
     void Update()
     {
         //  texto.text = mainInput.text;
-        string str = mainInput.text;
+        
+        if(panelLugares.activeInHierarchy){
+             str = mainInput.text;
+        }else{
+            str = mainInputDoctores.text;
+        }
 
         char[] spearator = {'-'};
 
@@ -105,7 +116,7 @@ public class PosicionCamara : MonoBehaviour
                     break;
                 case UnityWebRequest.Result.Success:
                 
-                var informacion = JsonConvert.DeserializeObject<System.Collections.Generic.List<InformacionResponse>>(request.downloadHandler.text);
+                var informacion = JsonConvert.DeserializeObject<System.Collections.Generic.List<Lugares>>(request.downloadHandler.text);
                 var myinformacion = informacion[0];
                 if(myinformacion != null){
                     cargando1.SetActive(false);
@@ -119,7 +130,7 @@ public class PosicionCamara : MonoBehaviour
 
                     doctor.text = "Nadie a cargo";
                     if(myinformacion.doctor != null){
-                       doctor.text = myinformacion.doctor.ToString();
+                       doctor.text = myinformacion.doctor.apellido + " " + myinformacion.doctor.nombre;
                     }
                 }
                 break;

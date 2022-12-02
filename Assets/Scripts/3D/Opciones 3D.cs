@@ -12,6 +12,8 @@ public class Opciones3D : MonoBehaviour
     public GameObject pisoOriginal;
     public GameObject paredes3d;
 
+    public GameObject marcadores;
+
 
     public void graficos3d(){
         if(piso.activeInHierarchy){
@@ -36,6 +38,13 @@ public class Opciones3D : MonoBehaviour
         }else{
             emergencias.SetActive(true);
         }
+    }
 
+    public void mostrarMarcadores(){
+        if(marcadores.activeInHierarchy){
+            marcadores.SetActive(false);
+        }else{
+            marcadores.SetActive(true);
+        }
     }
 }
