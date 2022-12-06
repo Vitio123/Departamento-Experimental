@@ -19,7 +19,8 @@ public class SearchableDropDown1 : MonoBehaviour
     [SerializeField] private int maxScrollRectSize = 180;
     [SerializeField] private List<string> avlOptions = new List<string>();
 
-    private string urlLugares = "https://mercedes-app-backend.herokuapp.com/lugares";
+    private string urlLugares = "https://mercedes-app-backend.herokuapp.com/lugares?_limit=-1";
+
 
       public static List<Lugares> listaLugaresPublico {
         private set;
@@ -55,7 +56,7 @@ public class SearchableDropDown1 : MonoBehaviour
         Panel.SetActive(true);
         texto.text = "Cargando lugares";
         // if(listaLugaresPublico != null){
-        //     StartCoroutine(HacerSolicitudLugares());
+        //     StartCoroutine(HacerSolxicitudLugares());
         // }
         Init();
         Panel.SetActive(false);
@@ -92,9 +93,10 @@ public class SearchableDropDown1 : MonoBehaviour
         // }else{
         //     AddItemToScrollRect(listaLugaresPublico);
         // }
-        // AddItemToScrollRect(Solicitudes.listaLugaresPublico);
-        StartCoroutine(HacerSolicitudDoctores());
-        // StartCoroutine(ActualizarLugares());
+        //AddItemToScrollRect(Solicitudes.listaLugaresPublico);
+        StartCoroutine(HacerSolicitudLugares());
+        //StartCoroutine(HacerSolicitudDoctores());
+        StartCoroutine(ActualizarLugares());
 
     }
 

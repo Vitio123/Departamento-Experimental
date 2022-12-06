@@ -10,7 +10,8 @@ using UnityEngine.Networking;
 public class Solicitudes : MonoBehaviour
 {
 
-    private string urlLugares = "https://mercedes-app-backend.herokuapp.com/lugares";
+    private string urlLugares = "https://mercedes-app-backend.herokuapp.com/lugares?_limit=-1";
+    
     public static List<Lugares> listaLugaresPublico {
         private set;
         get;

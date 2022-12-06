@@ -93,13 +93,13 @@ public class QrCodeRecenter : MonoBehaviour {
         cameraImageTexture.LoadRawTextureData(buffer);
         cameraImageTexture.Apply();
 
-        // Done with your temporary data, so you can dispose it.
+        // Terminado con sus datos temporales, para que pueda disponer de ellos.
         buffer.Dispose();
 
-        // Detect and decode the barcode inside the bitmap
+        // Detectar y decodificar el código de barras dentro del mapa de bits
         var result = reader.Decode(cameraImageTexture.GetPixels32(), cameraImageTexture.width, cameraImageTexture.height);
 
-        // Do something with the result
+        // Hacer algo con el resultado
         if (result != null) {
             texto.text = "Analizando el código QR";
             scanningEnabled = false;
@@ -110,18 +110,16 @@ public class QrCodeRecenter : MonoBehaviour {
     }
 
     IEnumerator SetQrCodeRecenterTarget(string targetText) {
-        
         TargetFacade currentTarget = targetHandler.GetCurrentTargetByTargetText(targetText);
         if (currentTarget != null) {
             yield return new WaitForSeconds(3);
-            // Reset position and rotation of ARSession
+            // Restablecer la posición y la rotación de ARSession
             session.Reset();
             // Añadir desplazamiento para el recentrado
             sessionOrigin.transform.position = currentTarget.transform.position;
             sessionOrigin.transform.rotation = currentTarget.transform.rotation;
 
             qrCodeScanningPanel.SetActive(false);
-
             texto_distancia.SetActive(true);
         }
     }
